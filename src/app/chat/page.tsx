@@ -84,3 +84,15 @@ export default function ChatPage() {
             placeholder="Ketik pesan Anda di sini..."
             disabled={isLoading}
           />
+          <button
+            onClick={handleSendMessage}
+            disabled={isLoading}
+            className="p-3 rounded-full bg-blue-600 text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 transition disabled:opacity-50"
+          >
+            {isLoading ? 'Mengirim...' : 'Kirim'}
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
