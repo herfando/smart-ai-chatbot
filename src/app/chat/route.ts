@@ -33,6 +33,12 @@ export async function POST(req: Request) {
     });
 
     // Ambil respons teks dari AI
-    const reply = response.choices[0].message.conte
+    const reply = response.choices[0].message.content;
 
-
+    // Kirim kembali respons dari AI
+    return NextResponse.json({ reply: reply }, { status: 200 });
+  } catch (error) {
+    console.error('Terjadi kesalahan saat memproses permintaan:', error);
+    return NextResponse.json({ error: 'Terjadi kesalahan internal pada server.' }, { status: 500 });
+  }
+}
