@@ -31,3 +31,7 @@ export default function ChatPage() {
         },
         body: JSON.stringify({ messages: [...messages, userMessage] }),
       });
+
+       if (!response.ok) {
+        throw new Error('Gagal berkomunikasi dengan API.');
+      }
