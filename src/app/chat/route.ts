@@ -32,4 +32,7 @@ export async function POST(req: Request) {
       messages: messages as any, // Perhatikan: 'as any' digunakan karena tipe dari 'messages' mungkin tidak sepenuhnya cocok dengan skema OpenAI
     });
 
+    // Ambil respons teks dari AI
+    const reply = response.choices[0].message.conte
+
 
