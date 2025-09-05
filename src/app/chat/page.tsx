@@ -71,3 +71,16 @@ export default function ChatPage() {
             </div>
           </div>
         ))}
+         </div>
+
+      <div className="p-4 bg-gray-800 border-t border-gray-700">
+        <div className="flex items-center space-x-2">
+          <input
+            type="text"
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+            onKeyDown={handleKeyDown}
+            className="flex-1 p-3 rounded-full bg-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
+            placeholder="Ketik pesan Anda di sini..."
+            disabled={isLoading}
+          />
