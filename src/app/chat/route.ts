@@ -12,3 +12,8 @@ interface Message {
   role: 'user' | 'system' | 'assistant';
   content: string;
 }
+
+// Tipe untuk body permintaan
+interface ChatRequest {
+  messages: Message[];
+}
