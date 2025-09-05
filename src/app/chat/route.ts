@@ -17,3 +17,13 @@ interface Message {
 interface ChatRequest {
   messages: Message[];
 }
+
+export async function POST(req: Request) {
+  try {
+    const { messages }: ChatRequest = await req.json();
+
+    if (!messages || messages.length === 0) {
+      return NextResponse.json({ error: 'Pesan tidak ditemukan dalam permintaan.' }, { status: 400 });
+    }
+
+
