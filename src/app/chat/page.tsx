@@ -53,3 +53,28 @@ export default function ChatPage() {
       handleSendMessage();
     }
   };
+
+  return (
+    <div className="flex flex-col h-screen bg-gray-900 text-white">
+      <header className="py-4 px-6 bg-gray-800 shadow-md">
+        <h1 className="text-xl font-bold">AI Chatbot Sederhana</h1>
+      </header>
+
+      <div className="flex-1 overflow-y-auto p-4 space-y-4">
+        {messages.map((msg, index) => (
+          <div
+            key={index}
+            className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}
+          >
+            <div
+              className={`max-w-xs md:max-w-md lg:max-w-lg p-3 rounded-lg shadow-md ${
+                msg.role === 'user'
+                  ? 'bg-blue-600 text-white'
+                  : 'bg-gray-700 text-gray-100'
+              }`}
+            >
+              {msg.content}
+            </div>
+          </div>
+        ))}
+      </div>
