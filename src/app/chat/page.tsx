@@ -47,3 +47,9 @@ export default function ChatPage() {
       setIsLoading(false);
     }
   };
+
+  return (
+    <div className="flex flex-col h-screen bg-gray-900 text-white">
+      <header className="py-4 px-6 bg-gray-800 shadow-md">
+        <h1 className="text-xl font-bold">AI Chatbot Sederhana</h1>
+      </header>
