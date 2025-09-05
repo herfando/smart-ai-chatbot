@@ -35,3 +35,15 @@ export default function ChatPage() {
        if (!response.ok) {
         throw new Error('Gagal berkomunikasi dengan API.');
       }
+
+      const data = await response.json();
+      const aiMessage: Message = { role: 'assistant', content: data.reply };
+      setMessages(prevMessages => [...prevMessages, aiMessage]);
+    } catch (error) {
+      console.error('Ada kesalahan:', error);
+      const errorMessage: Message = { role: 'assistant', content: 'Maaf, terjadi kesalahan. Silakan coba lagi.' };
+      setMessages(prevMessages => [...prevMessages, errorMessage]);
+    } finally {
+      setIsLoading(false);
+    }
+  };
