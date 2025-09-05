@@ -26,4 +26,10 @@ export async function POST(req: Request) {
       return NextResponse.json({ error: 'Pesan tidak ditemukan dalam permintaan.' }, { status: 400 });
     }
 
+    // Kirim pesan ke API OpenAI
+    const response = await openai.chat.completions.create({
+      model: "gpt-3.5-turbo",
+      messages: messages as any, // Perhatikan: 'as any' digunakan karena tipe dari 'messages' mungkin tidak sepenuhnya cocok dengan skema OpenAI
+    });
+
 
