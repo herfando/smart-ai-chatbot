@@ -6,3 +6,9 @@ import { NextResponse } from 'next/server';
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 });
+
+// Tipe untuk format pesan
+interface Message {
+  role: 'user' | 'system' | 'assistant';
+  content: string;
+}
