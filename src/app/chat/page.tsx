@@ -67,9 +67,8 @@ export default function ChatPage() {
             className={`flex items-end ${
               msg.role === 'user' ? 'justify-end' : 'justify-start'
             }`}
-          ></div>
-
-          <div
+          >
+            <div
               className={`max-w-xs md:max-w-md p-3 rounded-2xl shadow-md animate-fade-in ${
                 msg.role === 'user'
                   ? 'bg-gradient-to-r from-blue-500 to-indigo-500 text-white rounded-br-none'
@@ -105,3 +104,15 @@ export default function ChatPage() {
             placeholder="Ketik pesan Anda..."
             disabled={isLoading}
           />
+          <button
+            onClick={handleSendMessage}
+            disabled={isLoading}
+            className="p-3 rounded-full bg-indigo-600 text-white hover:bg-indigo-700 shadow-md transform hover:scale-105 transition disabled:opacity-50"
+          >
+            {isLoading ? '...' : '➤'}
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
