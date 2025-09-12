@@ -27,3 +27,18 @@ export default function ChatPage() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ messages: [...messages, userMessage] }),
       });
+
+      if (!response.ok) throw new Error('Gagal komunikasi API.');
+
+      const data = await response.json();
+      const aiMessage: Message = { role: 'assistant', content: data.reply };
+      setMessages(prev => [...prev, aiMessage]);
+    } catch (error) {
+      console.error('Error:', error);
+      setMessages(prev => [
+        ...prev,
+        { role: 'assistant', content: '⚠️ Maaf, terjadi kesalahan.' },
+      ]);
+    } finally {
+      setIsLoading(false);
+    }
