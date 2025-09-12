@@ -15,3 +15,8 @@ export default function ChatPage() {
 
   const handleSendMessage = async () => {
     if (input.trim() === '') return;
+
+    const userMessage: Message = { role: 'user', content: input };
+    setMessages(prev => [...prev, userMessage]);
+    setInput('');
+    setIsLoading(true);
