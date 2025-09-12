@@ -50,3 +50,11 @@ export default function ChatPage() {
       handleSendMessage();
     }
   };
+
+  return (
+    <div className="flex flex-col h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white">
+      {/* Header */}
+      <header className="py-4 px-6 bg-gradient-to-r from-indigo-500 to-purple-600 shadow-lg flex justify-between items-center">
+        <h1 className="text-lg font-bold">🤖 AI Chatbox</h1>
+        <span className="text-sm animate-pulse text-green-300">● Online</span>
+      </header>
