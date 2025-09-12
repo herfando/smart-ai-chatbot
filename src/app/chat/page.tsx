@@ -58,3 +58,13 @@ export default function ChatPage() {
         <h1 className="text-lg font-bold">🤖 AI Chatbox</h1>
         <span className="text-sm animate-pulse text-green-300">● Online</span>
       </header>
+
+      {/* Chat Area */}
+      <div className="flex-1 overflow-y-auto p-4 space-y-4">
+        {messages.map((msg, index) => (
+          <div
+            key={index}
+            className={`flex items-end ${
+              msg.role === 'user' ? 'justify-end' : 'justify-start'
+            }`}
+          ></div>
