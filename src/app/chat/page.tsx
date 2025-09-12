@@ -68,3 +68,15 @@ export default function ChatPage() {
               msg.role === 'user' ? 'justify-end' : 'justify-start'
             }`}
           ></div>
+
+          <div
+              className={`max-w-xs md:max-w-md p-3 rounded-2xl shadow-md animate-fade-in ${
+                msg.role === 'user'
+                  ? 'bg-gradient-to-r from-blue-500 to-indigo-500 text-white rounded-br-none'
+                  : 'bg-gray-700 text-gray-100 rounded-bl-none'
+              }`}
+            >
+              {msg.content}
+            </div>
+          </div>
+        ))}
